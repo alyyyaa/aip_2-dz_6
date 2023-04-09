@@ -1,0 +1,22 @@
+#Пользователь вводит строку. Напишите программу, которая определяет, является ли заданная
+#строка правильным IP-адресом. Обеспечьте контроль ввода, где предусматривается ввод целых чисел от 0 до 255,
+#а также точки между ними.
+
+def check_of_IP_address(IP_address):
+    parts = IP_address.split('.')
+    if len(parts) != 4:
+        return False
+
+    for part in parts:
+        if not part.isdigit():
+            return False
+        elif int(part) < 0 or int(part) > 255:
+            return False
+
+    return True
+
+IP_address = input("Введите IP-адрес: ")
+if check_of_IP_address(IP_address):
+    print("Данная строка является правильным IP-адресом")
+else:
+    print("Данная строка не является правильным IP-адресом")
